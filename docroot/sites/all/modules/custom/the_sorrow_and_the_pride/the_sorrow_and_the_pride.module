@@ -32,8 +32,7 @@ function the_sorrow_and_the_pride_home() {
     the_sorrow_and_the_pride_task_readable_text_status('no');
 
   $output .= '<h2>Task: Readable text?</h2>';
-  $output .= '<p>Identify memorial photos that contain readable text?</p>';
-
+  $output .= '<p>Find memorial photos that contain readable text.</p>';
 
   $output .= t('<p>@done of @total photos assessed. !task</p>', array(
     '@done' => $readable_text_done,
@@ -42,9 +41,10 @@ function the_sorrow_and_the_pride_home() {
   ));
 
   $output .= '<h2>Task: Transcribe text</h2>';
-  $output .= '<p>Transcribe text visible in a photo.</p>';
+  $output .= '<p>Transcribe text from a photo.</p>';
 
   $output .= '<h2>Task: Extract names</h2>';
+  $output .= '<p>Extract names from text inscriptions.</p>';
 
   $output .= '<h2>Tast: Match names</h2>';
   $output .= '<p>Match names to Cenotaph records</p>';
