@@ -48,7 +48,7 @@ function the_sorrow_and_the_pride_home() {
   $output .= '<h2>Task: Transcribe text</h2>';
   $output .= '<p>Transcribe text from a photo.</p>';
   $output .= t('<p>@done of @total photos transcribed. !task</p>', array(
-    '@done' => $transcribe_done,
+    '@done' => isset($transcribe_done) ? $transcribe_done : 0,
     '@total' => $transcribe_total,
     '!task' => $transcribe_done == $transcribe_total ? '' : '<a href="/task/transcribe">Transcribe text</a>.',
   ));
