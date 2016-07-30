@@ -40,8 +40,18 @@ function the_sorrow_and_the_pride_home() {
     '!task' => $readable_text_done == $readable_text_total ? '' : '<a href="/task/readable-text">Check photos for readable text</a>.'
   ));
 
+  // Transcribe task.
+  // Photos that have readable text, but transcription is not complete.
+  $transcribe_done = the_sorrow_and_the_pride_task_transcribe_status('done');
+  $transcribe_total = the_sorrow_and_the_pride_task_transcribe_status();
+
   $output .= '<h2>Task: Transcribe text</h2>';
   $output .= '<p>Transcribe text from a photo.</p>';
+  $output .= t('<p>@done of @total photos transcribed. !task</p>', array(
+    '@done' => $transcribe_done,
+    '@total' => $transcribe_total,
+    '!task' => $transcribe_done == $transcribe_total ? '' : '<a href="/task/transcribe">Transcribe text</a>.',
+  ));
 
   $output .= '<h2>Task: Extract names</h2>';
   $output .= '<p>Extract names from text inscriptions.</p>';
@@ -83,6 +93,26 @@ function the_sorrow_and_the_pride_task_readable_text_total() {
 
   $query->entityCondition('entity_type', 'file')
     ->entityCondition('bundle', 'image');
+
+  $result = $query->execute();
+
+  if (isset($result['file'])) {
+    $image_fids = array_keys($result['file']);
+    return count($image_fids);
+  }
+}
+
+function the_sorrow_and_the_pride_task_transcribe_status($status = 'total') {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'file')
+    ->entityCondition('bundle', 'image')
+    //->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_readable_text', 'value', 'yes', '=');
+
+  if ($status != 'total') {
+    $query->fieldCondition('field_transcription_complete', 'value', true, '=');
+  }
 
   $result = $query->execute();
 
