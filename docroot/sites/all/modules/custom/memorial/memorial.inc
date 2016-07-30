@@ -194,7 +194,7 @@ class MemorialMultiXMLMigration extends XMLMigration {
           }
         }
         $row->images = $images;
-        xdebug_break();
+        //xdebug_break();
       }
 
     }
