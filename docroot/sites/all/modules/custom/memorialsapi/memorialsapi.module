@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Implement REST API.
+ *
+ * Assuming Services REST Server is configured with path=api.
+ * e.g. curl -H "Content-Type: application/json" "http://thesorrowandthepride.local/api/memorials"
+ */
+
+/**
+ * Access callback for Memorials API requests.
+ *
+ * @param string $op
+ *   The operation that's going to be performed.
+ * @param array $args
+ *   The arguments that will be passed to the callback.
+ *
+ * @return bool
+ *   Whether access is given or not.
+ */
+function _memorialsapi_access($op, $args) {
+  return true;
+}
+
+/**
+ * Declare Memorials API endpoints.
+ *
+ * Implements hook_services_resources().
+ */
+function memorialsapi_services_resources() {
+  return array(
+    'memorials' => array(
+      'index' => array(
+        'help' => 'List memorials',
+        //'file' => array('file' => 'inc', 'module' => 'open311'),
+        'callback' => 'memorialsapi_memorials',
+        'access callback' => '_memorialsapi_access',
+        'access arguments' => array('view'),
+        'access arguments append' => TRUE,
+        'args' => array(),
+      ),
+    ),
+  );
+}
+
+/**
+ * Placeholder endpoint.
+ * @return array
+ */
+function memorialsapi_memorials() {
+  return array('memorials' => 'foobar');
+}

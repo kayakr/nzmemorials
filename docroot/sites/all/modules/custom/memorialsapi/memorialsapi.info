@@ -1,0 +1,6 @@
+name = Memorials API
+description = Expose Memorials data via REST API
+package = "NZMemorials"
+version = 7.x-1.0-alpha1
+core = "7.x"
+dependencies[] = "services"
