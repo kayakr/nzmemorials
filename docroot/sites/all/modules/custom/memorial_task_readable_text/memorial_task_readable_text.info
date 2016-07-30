@@ -1,0 +1,12 @@
+name = Memorial Task Readable Text
+description = Task to assess whether images have readable text
+core = 7.x
+package = Memorials
+version = 7.x-1.0-alpha1
+dependencies[] = ctools
+dependencies[] = editableviews
+dependencies[] = memorial_image
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = images_have_text

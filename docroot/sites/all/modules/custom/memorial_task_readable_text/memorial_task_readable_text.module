@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Memorial Task Readable Text feature.
+ */
+
+include_once 'memorial_task_readable_text.features.inc';
