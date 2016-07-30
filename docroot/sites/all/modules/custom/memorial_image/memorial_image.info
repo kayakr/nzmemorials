@@ -1,0 +1,13 @@
+name = Memorial Image
+description = Memorial image file entity configuration
+core = 7.x
+package = Memorials
+version = 7.x-1.0-alpha1
+dependencies[] = features
+dependencies[] = file
+dependencies[] = file_entity
+dependencies[] = list
+dependencies[] = options
+features[features_api][] = api:2
+features[field_base][] = field_readable_text
+features[field_instance][] = file-image-field_readable_text
