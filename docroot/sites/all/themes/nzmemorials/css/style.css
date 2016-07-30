@@ -19,3 +19,6 @@
 .view-task-transcribe-text #edit-actions-submit {
   float: right;
 }
+.view-task-transcribe-text .views-field-rendered {
+  width: 50%
+}

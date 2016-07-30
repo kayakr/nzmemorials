@@ -83,7 +83,7 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'If memorial photos have readable text, especially with names of people, please set the field to Yes. If there is definitely no text or text that is unreadable, set field to No.';
+  $handler->display->display_options['header']['area']['content'] = 'Transcribe text into the textarea. Include punctuation and new lines as appropriate. You can save at any time, but when all text has been transcribed, please check the Transcription complete checkbox.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -98,6 +98,7 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -108,6 +109,7 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['fields']['rendered']['id'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['table'] = 'file_managed';
   $handler->display->display_options['fields']['rendered']['field'] = 'rendered';
+  $handler->display->display_options['fields']['rendered']['file_view_mode'] = 'memorial_large';
   /* Field: File: Inscription (editable) */
   $handler->display->display_options['fields']['field_inscription_editable']['id'] = 'field_inscription_editable';
   $handler->display->display_options['fields']['field_inscription_editable']['table'] = 'field_data_field_inscription';
