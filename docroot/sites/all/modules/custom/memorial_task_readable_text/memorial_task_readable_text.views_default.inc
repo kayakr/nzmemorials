@@ -22,15 +22,16 @@ function memorial_task_readable_text_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Which images have readable text?';
+  $handler->display->display_options['title'] = 'Which photos have readable text?';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'editableviews_table';
   $handler->display->display_options['style_options']['columns'] = array(
     'filename' => 'filename',
@@ -88,7 +89,7 @@ function memorial_task_readable_text_views_default_views() {
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = '@total images to assess.';
+  $handler->display->display_options['header']['result']['content'] = '@total photos to assess.';
   /* Relationship: File: Content using Image */
   $handler->display->display_options['relationships']['reverse_field_images_node']['id'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
@@ -97,6 +98,7 @@ function memorial_task_readable_text_views_default_views() {
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
