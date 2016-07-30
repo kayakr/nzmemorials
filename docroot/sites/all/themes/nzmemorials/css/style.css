@@ -11,3 +11,11 @@
 .view-id-images_have_text .pager {
   display: none;
 }
+
+.view-task-transcribe-text thead,
+.view-task-transcribe-text .views-field-field-inscription-editable .views-row-edit-static {
+  display: none;
+}
+.view-task-transcribe-text #edit-actions-submit {
+  float: right;
+}
