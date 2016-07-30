@@ -8,6 +8,26 @@ include_once 'the_sorrow_and_the_pride.features.inc';
 
 
 /**
+ * Implements hook_menu().
+ */
+function the_sorrow_and_the_pride_menu() {
+  $items = array();
+
+  $items['home'] = array(
+    'title' => 'The Sorrow And The Pride',
+    'page callback' => 'the_sorrow_and_the_pride_home',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+function the_sorrow_and_the_pride_home() {
+  return '<p>The names on NZ Memorials.</p>';
+
+}
+
+/**
  * Implements hook_block_info().
  */
 function the_sorrow_and_the_pride_block_info() {
