@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Memorial Image feature.
  */
+
+include_once 'memorial_image.features.inc';
