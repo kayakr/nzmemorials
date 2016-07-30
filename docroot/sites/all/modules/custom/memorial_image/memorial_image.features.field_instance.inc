@@ -31,6 +31,13 @@ function memorial_image_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 4,
       ),
+      'memorial_large' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
+        'weight' => 4,
+      ),
       'preview' => array(
         'label' => 'above',
         'settings' => array(),
@@ -80,6 +87,13 @@ function memorial_image_field_default_field_instances() {
       ),
       'image_audit' => array(
         'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'memorial_large' => array(
+        'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -135,6 +149,13 @@ function memorial_image_field_default_field_instances() {
       ),
       'image_audit' => array(
         'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+      'memorial_large' => array(
+        'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
