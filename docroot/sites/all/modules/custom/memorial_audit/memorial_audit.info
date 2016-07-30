@@ -1,0 +1,14 @@
+name = Memorial Audit
+description = Table of memorials
+core = 7.x
+package = Memorials
+version = 7.x-1.0-alpha1
+dependencies[] = ctools
+dependencies[] = image
+dependencies[] = memorial
+dependencies[] = views
+dependencies[] = views_ui
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[image][] = tiny_thumb_square
+features[views_view][] = memorials_audit
