@@ -1,0 +1,16 @@
+name = Image Audit
+description = Table to audit images
+core = 7.x
+package = Memorials
+version = 7.x-1.0-alpah1
+dependencies[] = file_entity
+dependencies[] = views
+features[ctools][] = file_entity:file_default_displays:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[file_display][] = image__default__file_field_file_download_link
+features[file_display][] = image__default__file_field_file_table
+features[file_display][] = image__default__file_field_file_url_plain
+features[file_display][] = image__default__file_field_media_large_icon
+features[views_view][] = image_audit
+features_exclude[dependencies][ctools] = ctools

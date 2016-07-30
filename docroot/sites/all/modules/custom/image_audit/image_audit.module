@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Image Audit feature.
+ */
+
+include_once 'image_audit.features.inc';
