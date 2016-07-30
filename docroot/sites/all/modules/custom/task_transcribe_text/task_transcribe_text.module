@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Task: transcribe text feature.
+ */
+
+include_once 'task_transcribe_text.features.inc';
