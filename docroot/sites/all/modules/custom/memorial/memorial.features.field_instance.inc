@@ -91,6 +91,51 @@ function memorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-memorial-field_image_refs'.
+  $field_instances['node-memorial-field_image_refs'] = array(
+    'bundle' => 'memorial',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image_refs',
+    'label' => 'Image Refs',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'fields' => array(),
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+        'type_settings' => array(),
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-memorial-field_images'.
   $field_instances['node-memorial-field_images'] = array(
     'bundle' => 'memorial',
@@ -216,6 +261,7 @@ function memorial_field_default_field_instances() {
   t('Coordinates');
   t('Id');
   t('Image');
+  t('Image Refs');
   t('Remote node id from http://www.nzhistory.net.nz/');
   t('URL');
 
