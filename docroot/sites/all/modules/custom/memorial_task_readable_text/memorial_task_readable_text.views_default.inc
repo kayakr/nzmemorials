@@ -133,7 +133,7 @@ function memorial_task_readable_text_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'images-have-text';
+  $handler->display->display_options['path'] = 'task/readable-text';
   $export['images_have_text'] = $view;
 
   return $export;
