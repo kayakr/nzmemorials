@@ -2,6 +2,12 @@
  * Place your custom styles here.
  */
 
+.view-id-images_have_text thead {
+  display: none;
+}
 .view-id-images_have_text #edit-actions-submit {
   float: right;
+}
+.view-id-images_have_text .pager {
+  display: none;
 }
