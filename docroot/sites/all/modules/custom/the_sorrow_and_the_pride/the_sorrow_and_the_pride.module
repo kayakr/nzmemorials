@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the The Sorrow And The Pride feature.
+ */
+
+include_once 'the_sorrow_and_the_pride.features.inc';
