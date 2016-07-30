@@ -36,7 +36,7 @@ class MemorialMultiXMLMigration extends XMLMigration {
 
     // This can also be an URL instead of a file path.
     $xml_folder = DRUPAL_ROOT . '/' . drupal_get_path('module', 'memorial') . '/';
-    $items_url = $xml_folder . 'locations.kml'; // @todo: change to .kml when done.
+    $items_url = variable_get('memorials_xml_folder', $xml_folder) . 'locations.kml'; // @todo: change to .kml when done.
 
     // We use the MigrateSourceMultiItems class for any source where we obtain
     // the list of IDs to process and the data for each item from the same
