@@ -28,11 +28,9 @@ function memorial_task_readable_text_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'editableviews_table';
   $handler->display->display_options['style_options']['columns'] = array(
     'filename' => 'filename',
@@ -95,6 +93,10 @@ function memorial_task_readable_text_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_images_node']['id'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
   $handler->display->display_options['relationships']['reverse_field_images_node']['field'] = 'reverse_field_images_node';
+  /* Field: File: Name */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -112,16 +114,6 @@ function memorial_task_readable_text_views_default_views() {
   $handler->display->display_options['fields']['field_readable_text_editable']['widget_type'] = 'options_buttons';
   $handler->display->display_options['fields']['field_readable_text_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_readable_text_editable']['suppress_description'] = 0;
-  /* Field: Global: View result counter */
-  $handler->display->display_options['fields']['counter']['id'] = 'counter';
-  $handler->display->display_options['fields']['counter']['table'] = 'views';
-  $handler->display->display_options['fields']['counter']['field'] = 'counter';
-  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
-  $handler->display->display_options['fields']['counter']['reverse'] = 0;
-  /* Sort criterion: Global: Random */
-  $handler->display->display_options['sorts']['random']['id'] = 'random';
-  $handler->display->display_options['sorts']['random']['table'] = 'views';
-  $handler->display->display_options['sorts']['random']['field'] = 'random';
   /* Filter criterion: File: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'file_managed';
