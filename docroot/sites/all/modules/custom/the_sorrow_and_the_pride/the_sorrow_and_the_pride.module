@@ -1,7 +1,33 @@
 <?php
 /**
  * @file
- * Code for the The Sorrow And The Pride feature.
+ * Code for the The Sorrow And The Pride (TSATP) feature.
  */
 
 include_once 'the_sorrow_and_the_pride.features.inc';
+
+
+/**
+ * Implements hook_block_info().
+ */
+function the_sorrow_and_the_pride_block_info() {
+  // This example comes from node.module.
+  $blocks['tsatp_footer'] = array(
+    'info' => t('TSATP footer (the_sorrow_and_the_pride.module)'),
+    // DRUPAL_CACHE_PER_ROLE will be assumed.
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function the_sorrow_and_the_pride_block_view($delta = '') {
+  switch ($delta) {
+    case 'tsatp_footer':
+      $block['subject'] = '';
+      $block['content'] = '<p>A project by team <a href="http://2016.hackerspace.govhack.org/content/tabula-rasa-tsatp">Tabula Rasa</a> for GovHackNZ 2016.</p>';
+      return $block;
+  }
+}
