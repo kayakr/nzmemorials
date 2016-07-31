@@ -59,7 +59,7 @@ function the_sorrow_and_the_pride_home() {
     '!task' => '<a href="/task/extract-names">Extract names</a>.',
   ));
 
-  $output .= '<h2>Tast: Match names</h2>';
+  $output .= '<h2>Task: Match names</h2>';
   $output .= '<p>Match names to Cenotaph records</p>';
 
   return $output;
@@ -129,7 +129,11 @@ function the_sorrow_and_the_pride_task_transcribe_status($status = 'total') {
  * Implements hook_block_info().
  */
 function the_sorrow_and_the_pride_block_info() {
-  // This example comes from node.module.
+
+  $blocks['tsatp_copyright'] = array(
+    'info' => t('TSATP copyright (the_sorrow_and_the_pride.module)'),
+  );
+
   $blocks['tsatp_footer'] = array(
     'info' => t('TSATP footer (the_sorrow_and_the_pride.module)'),
     // DRUPAL_CACHE_PER_ROLE will be assumed.
@@ -143,10 +147,19 @@ function the_sorrow_and_the_pride_block_info() {
  */
 function the_sorrow_and_the_pride_block_view($delta = '') {
   switch ($delta) {
+    case 'tsatp_copyright':
+      $block['subject'] = '';
+      $block['content'] = '<p>Memorial photos are generally extracted from <a href="http://www.nzhistory.net.nz/">http://www.nzhistory.net.nz</a> and attribution should be checked there.<br/>
+<span xmlns:dct="http://purl.org/dc/terms/">Transcription content entered on this site is Public Domain
+<a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
+  <img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" style="border-style: none;" alt="Public Domain Mark" />
+</a></span></p>';
+      return $block;
+
     case 'tsatp_footer':
       $block['subject'] = '';
       $block['content'] = '<p>A project by team <a href="http://2016.hackerspace.govhack.org/content/tabula-rasa-tsatp">Tabula Rasa</a> for GovHackNZ 2016.</p>
-        <p><em>The Sorrow And The Pride</em> is an homage to <em><a href="https://www.amazon.com/sorrow-pride-New-Zealand-memorials/dp/0477014755">The Sorrow And The Pride: New Zealand War Memorials</a></em> by Chris Maclean and Jock Philips.</p>';
+        <p><em>The Sorrow And The Pride</em> is an homage to <em><a href="https://www.amazon.com/sorrow-pride-New-Zealand-memorials/dp/0477014755">The Sorrow And The Pride: New Zealand War Memorials</a></em> by Chris Maclean and Jock Philips.</p><br/>';
       return $block;
   }
 }
