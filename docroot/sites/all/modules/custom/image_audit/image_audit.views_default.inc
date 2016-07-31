@@ -72,6 +72,12 @@ function image_audit_views_default_views() {
   $handler->display->display_options['fields']['field_transcription_complete']['table'] = 'field_data_field_transcription_complete';
   $handler->display->display_options['fields']['field_transcription_complete']['field'] = 'field_transcription_complete';
   $handler->display->display_options['fields']['field_transcription_complete']['type'] = 'list_key';
+  /* Field: File: Names (individual) */
+  $handler->display->display_options['fields']['field_names_individual']['id'] = 'field_names_individual';
+  $handler->display->display_options['fields']['field_names_individual']['table'] = 'field_data_field_names_individual';
+  $handler->display->display_options['fields']['field_names_individual']['field'] = 'field_names_individual';
+  $handler->display->display_options['fields']['field_names_individual']['label'] = 'Names';
+  $handler->display->display_options['fields']['field_names_individual']['delta_offset'] = '0';
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
