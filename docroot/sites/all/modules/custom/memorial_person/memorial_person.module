@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Memorial Person feature.
+ */
+
+include_once 'memorial_person.features.inc';
