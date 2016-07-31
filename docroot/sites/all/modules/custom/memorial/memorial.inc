@@ -207,7 +207,7 @@ class MemorialMultiXMLMigration extends XMLMigration {
 
   // Return WKT from KML coordinates.
   public function coordinates($value) {
-    return 'POINT(' . strtr($value, array(',' => ' ')) . ')';
+    return 'POINT(' . strtr(trim($value), array(',' => ' ')) . ')';
   }
 
   public function getLatitude($value) {
