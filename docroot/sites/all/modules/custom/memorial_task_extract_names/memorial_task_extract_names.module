@@ -5,3 +5,60 @@
  */
 
 include_once 'memorial_task_extract_names.features.inc';
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function memorial_task_extract_names_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'editableviews_entity_form_task_extract_names':
+      //xdebug_break();
+      //$form['submit']['#ief_submit_all'] = TRUE;
+      // This form gets submitted when the inline entity form is submitted in editable views.
+      if (!empty($form_state['inline_entity_form'])) {
+        $inline_entity_form_id = current(array_keys($form_state['inline_entity_form']));
+        // People submitted
+        //if (count($form_state['values'])) {
+          // $form_state['values'][5][field_people][LANGUAGE_NONE][form]['title']='james lindsay';
+        //}
+      }
+      break;
+  }
+}
+
+
+/**
+ * When an image is saved, generate candidate name items for each line of the
+ * transcribed text.
+ *
+ * Implements hook_entity_presave().
+ */
+function memorial_task_extract_names_entity_presave($entity, $type) {
+
+  if ($type == 'file') {
+    if ($entity->type == 'image') {
+      // Image has transitioned to transcription complete.
+      if ($entity->field_transcription_complete[LANGUAGE_NONE][0]['value'] == 1) {
+        if (empty($entity->original->field_transcription_complete) ||
+          $entity->original->field_transcription_complete[LANGUAGE_NONE][0]['value'] == 0) {
+          // Populate candidate names from lines.
+          if (!empty($entity->field_inscription[LANGUAGE_NONE][0]['value'])) {
+            $lines = explode("\r\n", $entity->field_inscription[LANGUAGE_NONE][0]['value']);
+            if (count($lines)) {
+               foreach ($lines as $line) {
+                 $entity->field_names_individual[LANGUAGE_NONE][] = array(
+                   'value' => $line,
+                   'safe_value' => check_plain($line),
+                 );
+               }
+            }
+            else {
+              // @todo: log this.
+            }
+          }
+        }
+      }
+    }
+  }
+}
