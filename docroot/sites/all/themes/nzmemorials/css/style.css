@@ -2,23 +2,35 @@
  * Place your custom styles here.
  */
 
-.view-id-images_have_text thead {
+.view-id-images_have_text thead,
+.view-task-transcribe-text thead,
+.view-task-extract-names thead {
   display: none;
 }
-.view-id-images_have_text #edit-actions-submit {
-  float: right;
-}
+
 .view-id-images_have_text .pager {
   display: none;
 }
 
-.view-task-transcribe-text thead,
 .view-task-transcribe-text .views-field-field-inscription-editable .views-row-edit-static {
   display: none;
 }
-.view-task-transcribe-text #edit-actions-submit {
+
+.view-id-images_have_text #edit-actions-submit,
+.view-task-transcribe-text #edit-actions-submit,
+.view-task-extract-names #edit-actions-submit {
   float: right;
 }
 .view-task-transcribe-text .views-field-rendered {
   width: 50%
+}
+
+.view-task-extract-names .views-field-field-names-individual-editable .views-row-edit-static,
+.view-task-extract-names .tabledrag-toggle-weight-wrapper,
+.view-task-extract-names .field-name-field-names-individual .control-label {
+  display: none;
+}
+.view-task-extract-names .views-field-field-inscription {
+  width: 30%;
+  white-space: pre-line;
 }
