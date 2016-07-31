@@ -71,6 +71,65 @@ function memorial_image_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'file-image-field_names_individual'.
+  $field_instances['file-image-field_names_individual'] = array(
+    'bundle' => 'image',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'image_audit' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'memorial_large' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'file',
+    'field_name' => 'field_names_individual',
+    'label' => 'Names (individual)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'file-image-field_readable_text'.
   $field_instances['file-image-field_readable_text'] = array(
     'bundle' => 'image',
@@ -196,6 +255,7 @@ function memorial_image_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Inscription');
+  t('Names (individual)');
   t('Readable text');
   t('Transcription complete');
   t('You can save any time.');
