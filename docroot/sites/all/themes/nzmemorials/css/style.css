@@ -38,3 +38,9 @@
   width: 30%;
   white-space: pre-line;
 }
+
+.caption {
+  color: #666;
+  position: relative;
+  top: -1em;
+}

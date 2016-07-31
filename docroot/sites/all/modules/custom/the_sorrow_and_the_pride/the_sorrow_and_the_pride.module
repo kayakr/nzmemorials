@@ -52,9 +52,14 @@ function the_sorrow_and_the_pride_home() {
     '!task' => $transcribe_done == $transcribe_total ? '' : '<a href="/task/transcribe">Transcribe text from photos</a>.',
   ));
 
+  $extract_names_done = the_sorrow_and_the_pride_task_extract_names_status('done');
+  $extract_names_total = the_sorrow_and_the_pride_task_extract_names_status();
+
   $output .= '<h2>Task: Extract names</h2>';
   $output .= t('<p>@done of @total transcriptions with names extracted. !task</p>', array(
-    '!task' => '<a href="/task/extract-names">Extract names from text</a>.',
+    '@done' => isset($extract_names_done) ? $extract_names_done : 0,
+    '@total' => $extract_names_total,
+    '!task' => $extract_names_done == $extract_names_total ? '' : '<a href="/task/extract-names">Extract names from text</a>.',
   ));
 
   $output .= '<h2>Task: Match names</h2>';
@@ -66,7 +71,8 @@ function the_sorrow_and_the_pride_home() {
   $output .= '</div>';
 
   $path = drupal_get_path('module', 'the_sorrow_and_the_pride');
-  $output .= '<div class="col-md-6"><img class="img-responsive" src="/' . $path . '/IMG_5125.JPG"/></div>';
+  $output .= '<div class="col-md-6"><img class="img-responsive" src="/' . $path . '/IMG_5125.JPG"/><br/>
+  <span class="caption">Photo: Lyttelton war memorial, J. Hunt.</span></div>';
 
 
   return $output;
@@ -122,6 +128,26 @@ function the_sorrow_and_the_pride_task_transcribe_status($status = 'total') {
 
   if ($status != 'total') {
     $query->fieldCondition('field_transcription_complete', 'value', true, '=');
+  }
+
+  $result = $query->execute();
+
+  if (isset($result['file'])) {
+    $image_fids = array_keys($result['file']);
+    return count($image_fids);
+  }
+}
+
+function the_sorrow_and_the_pride_task_extract_names_status($status = 'total') {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'file')
+    ->entityCondition('bundle', 'image')
+    //->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_transcription_complete', 'value', true, '=');
+
+  if ($status != 'total') {
+    $query->fieldCondition('field_extract_names_complete', 'value', true, '=');
   }
 
   $result = $query->execute();
