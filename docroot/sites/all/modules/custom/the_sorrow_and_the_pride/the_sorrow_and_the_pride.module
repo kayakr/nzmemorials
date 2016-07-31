@@ -55,6 +55,9 @@ function the_sorrow_and_the_pride_home() {
 
   $output .= '<h2>Task: Extract names</h2>';
   $output .= '<p>Extract names from text inscriptions.</p>';
+  $output .= t('<p>@done of @total transcriptions with names extracted. !task</p>', array(
+    '!task' => '<a href="/task/extract-names">Extract names</a>.',
+  ));
 
   $output .= '<h2>Tast: Match names</h2>';
   $output .= '<p>Match names to Cenotaph records</p>';
