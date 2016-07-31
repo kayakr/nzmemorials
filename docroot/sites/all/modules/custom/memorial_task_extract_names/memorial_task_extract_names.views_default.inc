@@ -37,8 +37,9 @@ function memorial_task_extract_names_views_default_views() {
     'filename' => 'filename',
     'title' => 'title',
     'rendered' => 'rendered',
-    'field_inscription_editable' => 'field_inscription_editable',
-    'field_transcription_complete_editable' => 'field_inscription_editable',
+    'field_inscription' => 'field_inscription',
+    'field_names_individual_editable' => 'field_names_individual_editable',
+    'field_extract_names_complete_editable' => 'field_names_individual_editable',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -63,14 +64,19 @@ function memorial_task_extract_names_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_inscription_editable' => array(
+    'field_inscription' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_transcription_complete_editable' => array(
+    'field_names_individual_editable' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_extract_names_complete_editable' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -83,7 +89,7 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Copy only names, one per line, into the names text area.';
+  $handler->display->display_options['header']['area']['content'] = 'Please delete text from candidate name rows, and add additional names if needed. Leave names in the exact format of the inscription.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -94,6 +100,7 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_images_node']['id'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
   $handler->display->display_options['relationships']['reverse_field_images_node']['field'] = 'reverse_field_images_node';
+  $handler->display->display_options['relationships']['reverse_field_images_node']['required'] = TRUE;
   /* Field: File: Name */
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
@@ -114,14 +121,6 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['fields']['field_inscription']['id'] = 'field_inscription';
   $handler->display->display_options['fields']['field_inscription']['table'] = 'field_data_field_inscription';
   $handler->display->display_options['fields']['field_inscription']['field'] = 'field_inscription';
-  /* Field: File: Names (editable) */
-  $handler->display->display_options['fields']['field_names_editable']['id'] = 'field_names_editable';
-  $handler->display->display_options['fields']['field_names_editable']['table'] = 'field_data_field_names';
-  $handler->display->display_options['fields']['field_names_editable']['field'] = 'field_names_editable';
-  $handler->display->display_options['fields']['field_names_editable']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_names_editable']['widget_type'] = '0';
-  $handler->display->display_options['fields']['field_names_editable']['suppress_label'] = 0;
-  $handler->display->display_options['fields']['field_names_editable']['suppress_description'] = 0;
   /* Field: File: Names (individual) (editable) */
   $handler->display->display_options['fields']['field_names_individual_editable']['id'] = 'field_names_individual_editable';
   $handler->display->display_options['fields']['field_names_individual_editable']['table'] = 'field_data_field_names_individual';
@@ -130,6 +129,13 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['fields']['field_names_individual_editable']['widget_type'] = '0';
   $handler->display->display_options['fields']['field_names_individual_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_names_individual_editable']['suppress_description'] = 0;
+  /* Field: File: Extract names complete (editable) */
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['id'] = 'field_extract_names_complete_editable';
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['table'] = 'field_data_field_extract_names_complete';
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['field'] = 'field_extract_names_complete_editable';
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['widget_type'] = '0';
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['suppress_label'] = 0;
+  $handler->display->display_options['fields']['field_extract_names_complete_editable']['suppress_description'] = 0;
   /* Filter criterion: File: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'file_managed';
@@ -149,6 +155,14 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['filters']['field_transcription_complete_value']['table'] = 'field_data_field_transcription_complete';
   $handler->display->display_options['filters']['field_transcription_complete_value']['field'] = 'field_transcription_complete_value';
   $handler->display->display_options['filters']['field_transcription_complete_value']['value'] = array(
+    1 => '1',
+  );
+  /* Filter criterion: File: Extract names complete (field_extract_names_complete) */
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['id'] = 'field_extract_names_complete_value';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['table'] = 'field_data_field_extract_names_complete';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['field'] = 'field_extract_names_complete_value';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['value'] = array(
     1 => '1',
   );
 
