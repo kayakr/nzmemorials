@@ -39,7 +39,7 @@ function memorial_task_extract_names_entity_presave($entity, $type) {
   if ($type == 'file') {
     if ($entity->type == 'image') {
       // Image has transitioned to transcription complete.
-      if ($entity->field_transcription_complete[LANGUAGE_NONE][0]['value'] == 1) {
+      if (isset($entity->field_transcription_complete[LANGUAGE_NONE]) && $entity->field_transcription_complete[LANGUAGE_NONE][0]['value'] == 1) {
         if (empty($entity->original->field_transcription_complete) ||
           $entity->original->field_transcription_complete[LANGUAGE_NONE][0]['value'] == 0) {
           // Populate candidate names from lines.
