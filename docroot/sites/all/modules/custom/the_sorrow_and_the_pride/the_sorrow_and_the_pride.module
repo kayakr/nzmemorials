@@ -23,8 +23,9 @@ function the_sorrow_and_the_pride_menu() {
 }
 
 function the_sorrow_and_the_pride_home() {
-  $output = '<p>The names on NZ Memorials.</p>';
+  $output = '<p>Finding the people behind the names on NZ War Memorials.</p>';
 
+  $output .= '<div class="col-md-6">';
   $output .= '<p>Help us identify the men and women memorialised.</p>';
 
   $readable_text_total = the_sorrow_and_the_pride_task_readable_text_total();
@@ -61,6 +62,11 @@ function the_sorrow_and_the_pride_home() {
 
   $output .= '<h2>Task: Match names</h2>';
   $output .= '<p>Match names to Cenotaph records</p>';
+  $output .= '</div>';
+
+  $path = drupal_get_path('module', 'the_sorrow_and_the_pride');
+  $output .= '<div class="col-md-6"><img class="img-responsive" src="/' . $path . '/IMG_5125.JPG"/></div>';
+
 
   return $output;
 }
