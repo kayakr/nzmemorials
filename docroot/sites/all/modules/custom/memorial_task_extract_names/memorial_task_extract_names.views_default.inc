@@ -89,7 +89,7 @@ function memorial_task_extract_names_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Please delete text from candidate name rows, and add additional names if needed. Leave names in the exact format of the inscription.';
+  $handler->display->display_options['header']['area']['content'] = 'Please delete non-name text from candidate name rows, and add additional name rows and text if needed. Leave names in the exact format of the inscription.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
