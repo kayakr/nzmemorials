@@ -63,7 +63,7 @@ function the_sorrow_and_the_pride_home() {
   ));
 
   $output .= '<h2>Task: Match names</h2>';
-  $output .= '<p>Match names to Cenotaph records</p>';
+  $output .= '<p>Match names to Cenotaph records... TBD.</p>';
 
   $output .= '<h2>Next steps</h2>';
   $output .= '<p>We hope to add an interactive, mobile-friendly map, and an HTTP API for memorial and name data. Check back soon.</p>';
@@ -182,7 +182,9 @@ function the_sorrow_and_the_pride_block_view($delta = '') {
   switch ($delta) {
     case 'tsatp_copyright':
       $block['subject'] = '';
-      $block['content'] = '<p>Memorial photos are generally extracted from <a href="http://www.nzhistory.net.nz/">http://www.nzhistory.net.nz</a> and attribution should be checked there.<br/>
+      $block['content'] = '
+<p>\'Memorials register\', URL: <a href="http://www.nzhistory.net.nz/culture/the-memorials-register">http://www.nzhistory.net.nz/culture/the-memorials-register</a>, (Ministry for Culture and Heritage), updated 30-Jun-2016.<br/>
+Memorial photos are generally extracted from <a href="http://www.nzhistory.net.nz/">http://www.nzhistory.net.nz</a> and attribution should be checked there.<br/>
 <span xmlns:dct="http://purl.org/dc/terms/">Transcription content entered on this site is Public Domain
 <a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
   <img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" style="border-style: none;" alt="Public Domain Mark" />
