@@ -2,6 +2,10 @@
  * Place your custom styles here.
  */
 
+.intro-text {
+  padding-left: 0;
+}
+
 .view-id-images_have_text thead,
 .view-task-transcribe-text thead,
 .view-task-extract-names thead {
@@ -33,4 +37,10 @@
 .view-task-extract-names .views-field-field-inscription {
   width: 30%;
   white-space: pre-line;
+}
+
+.caption {
+  color: #666;
+  position: relative;
+  top: -1em;
 }
