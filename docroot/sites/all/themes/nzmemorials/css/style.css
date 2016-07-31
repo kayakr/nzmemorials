@@ -2,6 +2,10 @@
  * Place your custom styles here.
  */
 
+.intro-text {
+  padding-left: 0;
+}
+
 .view-id-images_have_text thead,
 .view-task-transcribe-text thead,
 .view-task-extract-names thead {

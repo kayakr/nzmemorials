@@ -23,9 +23,9 @@ function the_sorrow_and_the_pride_menu() {
 }
 
 function the_sorrow_and_the_pride_home() {
-  $output = '<p>Finding the people behind the names on NZ War Memorials.</p>';
+  $output = '<p><em>Finding the people behind the names on Aotearoa New Zealand war memorials.</em></p>';
 
-  $output .= '<div class="col-md-6">';
+  $output .= '<div class="col-md-6 intro-text">';
   $output .= '<p>Help us identify the men and women memorialised.</p>';
 
   $readable_text_total = the_sorrow_and_the_pride_task_readable_text_total();
@@ -33,7 +33,6 @@ function the_sorrow_and_the_pride_home() {
     the_sorrow_and_the_pride_task_readable_text_status('no');
 
   $output .= '<h2>Task: Readable text?</h2>';
-  $output .= '<p>Find memorial photos that contain readable text.</p>';
 
   $output .= t('<p>@done of @total photos assessed. !task</p>', array(
     '@done' => $readable_text_done,
@@ -47,21 +46,23 @@ function the_sorrow_and_the_pride_home() {
   $transcribe_total = the_sorrow_and_the_pride_task_transcribe_status();
 
   $output .= '<h2>Task: Transcribe text</h2>';
-  $output .= '<p>Transcribe text from a photo.</p>';
   $output .= t('<p>@done of @total photos transcribed. !task</p>', array(
     '@done' => isset($transcribe_done) ? $transcribe_done : 0,
     '@total' => $transcribe_total,
-    '!task' => $transcribe_done == $transcribe_total ? '' : '<a href="/task/transcribe">Transcribe text</a>.',
+    '!task' => $transcribe_done == $transcribe_total ? '' : '<a href="/task/transcribe">Transcribe text from photos</a>.',
   ));
 
   $output .= '<h2>Task: Extract names</h2>';
-  $output .= '<p>Extract names from text inscriptions.</p>';
   $output .= t('<p>@done of @total transcriptions with names extracted. !task</p>', array(
-    '!task' => '<a href="/task/extract-names">Extract names</a>.',
+    '!task' => '<a href="/task/extract-names">Extract names from text</a>.',
   ));
 
   $output .= '<h2>Task: Match names</h2>';
   $output .= '<p>Match names to Cenotaph records</p>';
+
+  $output .= '<h2>Next steps</h2>';
+  $output .= '<p>We hope to add an interactive, mobile-friendly map, and an HTTP API for memorial and name data. Check back soon.</p>';
+
   $output .= '</div>';
 
   $path = drupal_get_path('module', 'the_sorrow_and_the_pride');
@@ -164,7 +165,7 @@ function the_sorrow_and_the_pride_block_view($delta = '') {
 
     case 'tsatp_footer':
       $block['subject'] = '';
-      $block['content'] = '<p>A project by team <a href="http://2016.hackerspace.govhack.org/content/tabula-rasa-tsatp">Tabula Rasa</a> for GovHackNZ 2016.</p>
+      $block['content'] = '<p>A project by team <a href="http://2016.hackerspace.govhack.org/content/tabula-rasa-tsatp">Tabula Rasa</a> for GovHackNZ, July 2016. Code and background at <a href="https://github.com/kayakr/nzmemorials">https://github.com/kayakr/nzmemorials</a>.</a></p>
         <p><em>The Sorrow And The Pride</em> is an homage to <em><a href="https://www.amazon.com/sorrow-pride-New-Zealand-memorials/dp/0477014755">The Sorrow And The Pride: New Zealand War Memorials</a></em> by Chris Maclean and Jock Philips.</p><br/>';
       return $block;
   }
