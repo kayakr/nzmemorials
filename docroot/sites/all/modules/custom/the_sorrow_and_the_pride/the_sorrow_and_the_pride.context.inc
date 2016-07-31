@@ -33,6 +33,12 @@ function the_sorrow_and_the_pride_context_default_contexts() {
           'region' => 'footer',
           'weight' => '-10',
         ),
+        'the_sorrow_and_the_pride-tsatp_copyright' => array(
+          'module' => 'the_sorrow_and_the_pride',
+          'delta' => 'tsatp_copyright',
+          'region' => 'footer',
+          'weight' => '-9',
+        ),
       ),
     ),
   );
