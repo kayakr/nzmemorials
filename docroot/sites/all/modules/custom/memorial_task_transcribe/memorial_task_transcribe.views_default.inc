@@ -91,13 +91,13 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Transcribe text into the textarea as closely as possible to the order and format on the memorial, but ensure each name is on a new line. Include punctuation and new lines as appropriate. You can save at any time, but when all text has been transcribed, please check the Transcription complete checkbox.';
+  $handler->display->display_options['header']['area']['content'] = 'Transcribe text into the textarea as closely as possible to the order and format on the memorial, but ensure each name is on a new line. You can save at any time. When all text has been transcribed, please set the Transcription complete field based on whether names are present in the transcribed text.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = '@total images to assess.';
+  $handler->display->display_options['header']['result']['content'] = '@total images to transcribe.';
   /* Relationship: File: Content using Image */
   $handler->display->display_options['relationships']['reverse_field_images_node']['id'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
