@@ -19,7 +19,7 @@ function memorial_image_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Move image to name extraction and matching.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -314,10 +314,67 @@ function memorial_image_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'file-image-field_transcription_status'.
+  $field_instances['file-image-field_transcription_status'] = array(
+    'bundle' => 'image',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'image_audit' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'memorial_large' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'file',
+    'field_name' => 'field_transcription_status',
+    'label' => 'Transcription complete',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+      'wysiwyg_override' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 6,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Extract names complete');
   t('Inscription');
+  t('Move image to name extraction and matching.');
   t('Names (individual)');
   t('Readable text');
   t('Transcription complete');
