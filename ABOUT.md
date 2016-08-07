@@ -40,10 +40,18 @@ In hindsight, (and perhaps a todo), status fields should be harmonised/merged.
 ## Tasks
 
 ### Task: Readable text (/task/readable-text)
-Check photos for readable text.
-Include all Images (file type==image) where field_readable_text != Yes,No.
+* Check photos for readable text.
+* Include all Images (file type==image) where field_readable_text != Yes,No.
+* Rationale: many images of memorials don't contain text that can be transcribe, so filter those images out.
 
 ### Task: Transcribe text (/task/transcribe)
-Transcribe text from photos.
-Include all Images where Readable text=Yes and Transcription complete != transcribe_names_yes,transcribe_names_no.
+* Transcribe text from photos.
+* Include all Images where Readable text=Yes and Transcription complete != transcribe_names_yes,transcribe_names_no.
+* Rationale: transcribe the text from image as accurately as is reasonable.
 
+### Task: Extract names (/task/extract-names)
+* Extract names from text. 
+* Include all Images where Readable text=Yes, and field_transcription_status==transcribe_names_yes extract names != On.
+* Rationale: many inscriptions are of verse or other information. While useful, only image name data should proceed for additional processing.
+
+### Task: Match names (TBD)
