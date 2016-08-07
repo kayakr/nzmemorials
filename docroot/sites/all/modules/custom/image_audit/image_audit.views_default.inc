@@ -42,6 +42,14 @@ function image_audit_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
   $handler->display->display_options['relationships']['reverse_field_images_node']['field'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['required'] = TRUE;
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['label'] = '';
+  $handler->display->display_options['fields']['counter']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['fields']['counter']['reverse'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -67,17 +75,16 @@ function image_audit_views_default_views() {
   $handler->display->display_options['fields']['field_inscription']['id'] = 'field_inscription';
   $handler->display->display_options['fields']['field_inscription']['table'] = 'field_data_field_inscription';
   $handler->display->display_options['fields']['field_inscription']['field'] = 'field_inscription';
-  /* Field: File: Transcription complete */
-  $handler->display->display_options['fields']['field_transcription_complete']['id'] = 'field_transcription_complete';
-  $handler->display->display_options['fields']['field_transcription_complete']['table'] = 'field_data_field_transcription_complete';
-  $handler->display->display_options['fields']['field_transcription_complete']['field'] = 'field_transcription_complete';
-  $handler->display->display_options['fields']['field_transcription_complete']['type'] = 'list_key';
   /* Field: File: Names (individual) */
   $handler->display->display_options['fields']['field_names_individual']['id'] = 'field_names_individual';
   $handler->display->display_options['fields']['field_names_individual']['table'] = 'field_data_field_names_individual';
   $handler->display->display_options['fields']['field_names_individual']['field'] = 'field_names_individual';
   $handler->display->display_options['fields']['field_names_individual']['label'] = 'Names';
   $handler->display->display_options['fields']['field_names_individual']['delta_offset'] = '0';
+  /* Field: File: Transcription complete */
+  $handler->display->display_options['fields']['field_transcription_status']['id'] = 'field_transcription_status';
+  $handler->display->display_options['fields']['field_transcription_status']['table'] = 'field_data_field_transcription_status';
+  $handler->display->display_options['fields']['field_transcription_status']['field'] = 'field_transcription_status';
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -118,17 +125,16 @@ function image_audit_views_default_views() {
     1 => 0,
     3 => 0,
   );
-  /* Filter criterion: File: Transcription complete (field_transcription_complete) */
-  $handler->display->display_options['filters']['field_transcription_complete_value']['id'] = 'field_transcription_complete_value';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['table'] = 'field_data_field_transcription_complete';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['field'] = 'field_transcription_complete_value';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_transcription_complete_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_transcription_complete_value']['expose']['operator_id'] = 'field_transcription_complete_value_op';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['expose']['label'] = 'Transcription complete';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['expose']['operator'] = 'field_transcription_complete_value_op';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['expose']['identifier'] = 'field_transcription_complete_value';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['expose']['remember_roles'] = array(
+  /* Filter criterion: File: Transcription complete (field_transcription_status) */
+  $handler->display->display_options['filters']['field_transcription_status_value']['id'] = 'field_transcription_status_value';
+  $handler->display->display_options['filters']['field_transcription_status_value']['table'] = 'field_data_field_transcription_status';
+  $handler->display->display_options['filters']['field_transcription_status_value']['field'] = 'field_transcription_status_value';
+  $handler->display->display_options['filters']['field_transcription_status_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_transcription_status_value']['expose']['operator_id'] = 'field_transcription_status_value_op';
+  $handler->display->display_options['filters']['field_transcription_status_value']['expose']['label'] = 'Transcription status';
+  $handler->display->display_options['filters']['field_transcription_status_value']['expose']['operator'] = 'field_transcription_status_value_op';
+  $handler->display->display_options['filters']['field_transcription_status_value']['expose']['identifier'] = 'field_transcription_status_value';
+  $handler->display->display_options['filters']['field_transcription_status_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
