@@ -44,3 +44,8 @@
   position: relative;
   top: -1em;
 }
+
+.view-id-images_have_text .view-footer,
+.view-id-images_have_text .view-footer a {
+  color: #666;
+}
