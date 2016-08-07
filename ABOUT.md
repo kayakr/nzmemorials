@@ -26,7 +26,7 @@ If we can help families and historians to successfully match up these names with
 * filename, e.g. lyttelton-memorial-5.jpg
 * Readable text: field_readable_text, status tracking for whether image contains useful text; N/A (or _none), Yes, No.
 * Inscription: field_inscription, Text area to hold raw transcription of plaque
-* Transcription complete: field_transcription_status, N/A (or _none), Yes, No
+* Transcription complete: field_transcription_status, N/A (or _none), transcribe_names_yes, transcribe_names_no.
 * Names: field_names, Text area to hold text of names, but not non-name text (e.g. "Lest we forget.")
 * Extract names complete: field_extract_names_complete, boolean: yes or no.
 * Names (individual): field_names_individual, multiple-value field based on field_names split at new line.
@@ -35,5 +35,15 @@ If we can help families and historians to successfully match up these names with
 * Name
 * URL: link to cenotaph database.
 
-
 In hindsight, (and perhaps a todo), status fields should be harmonised/merged.
+
+## Tasks
+
+### Task: Readable text (/task/readable-text)
+Check photos for readable text.
+Include all Images (file type==image) where field_readable_text != Yes,No.
+
+### Task: Transcribe text (/task/transcribe)
+Transcribe text from photos.
+Include all Images where Readable text=Yes and Transcription complete != transcribe_names_yes,transcribe_names_no.
+
