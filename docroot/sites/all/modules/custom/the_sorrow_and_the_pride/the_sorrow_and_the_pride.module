@@ -126,8 +126,8 @@ function the_sorrow_and_the_pride_task_transcribe_status($status = 'total') {
     //->propertyCondition('status', NODE_PUBLISHED)
     ->fieldCondition('field_readable_text', 'value', 'yes', '=');
 
-  if ($status != 'total') {
-    $query->fieldCondition('field_transcription_complete', 'value', true, '=');
+  if ($status != 'total') { // assume done, but none=N/A
+    $query->fieldCondition('field_transcription_status', 'value', 'NULL', '!=');
   }
 
   $result = $query->execute();
@@ -144,7 +144,7 @@ function the_sorrow_and_the_pride_task_extract_names_status($status = 'total') {
   $query->entityCondition('entity_type', 'file')
     ->entityCondition('bundle', 'image')
     //->propertyCondition('status', NODE_PUBLISHED)
-    ->fieldCondition('field_transcription_complete', 'value', true, '=');
+    ->fieldCondition('field_transcription_status', 'value', 'transcribe_names_yes', '=');
 
   if ($status != 'total') {
     $query->fieldCondition('field_extract_names_complete', 'value', true, '=');
