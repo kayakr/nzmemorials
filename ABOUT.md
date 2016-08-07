@@ -11,3 +11,29 @@ If we can help families and historians to successfully match up these names with
 
 ## Project Name
 "The Sorrow And The Pride" is an homage to [The Sorrow And The Pride: New Zealand War Memorials](https://www.amazon.com/sorrow-pride-New-Zealand-memorials/dp/0477014755) by Chris Maclean and Jock Philips (1990).
+
+## Data
+
+### Memorial
+* Name
+* Id: field_id, remote node id from NZHistory.
+* Coordinates: field_coordinates, lat,lon.
+* URL: field url, link to original page on nzhistory.net.nz.
+* Image: field_images, internal reference to 0..N Image files.
+
+### Image
+* fid, local file id
+* filename, e.g. lyttelton-memorial-5.jpg
+* Readable text: field_readable_text, status tracking for whether image contains useful text; N/A (or _none), Yes, No.
+* Inscription: field_inscription, Text area to hold raw transcription of plaque
+* Transcription complete: field_transcription_status, N/A (or _none), Yes, No
+* Names: field_names, Text area to hold text of names, but not non-name text (e.g. "Lest we forget.")
+* Extract names complete: field_extract_names_complete, boolean: yes or no.
+* Names (individual): field_names_individual, multiple-value field based on field_names split at new line.
+
+### Person
+* Name
+* URL: link to cenotaph database.
+
+
+In hindsight, (and perhaps a todo), status fields should be harmonised/merged.
