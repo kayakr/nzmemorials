@@ -68,7 +68,7 @@ function memorial_image_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 4,
+      'weight' => 8,
     ),
   );
 
@@ -129,7 +129,7 @@ function memorial_image_field_default_field_instances() {
         'rows' => 15,
       ),
       'type' => 'text_textarea',
-      'weight' => 0,
+      'weight' => 5,
     ),
   );
 
@@ -188,7 +188,7 @@ function memorial_image_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 9,
     ),
   );
 
@@ -246,71 +246,7 @@ function memorial_image_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => -1,
-    ),
-  );
-
-  // Exported field_instance: 'file-image-field_transcription_complete'.
-  $field_instances['file-image-field_transcription_complete'] = array(
-    'bundle' => 'image',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 5,
-      ),
-      'image_audit' => array(
-        'label' => 'hidden',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 5,
-      ),
-      'memorial_large' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 5,
-      ),
-      'preview' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'file',
-    'field_name' => 'field_transcription_complete',
-    'label' => 'Transcription complete',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-      'wysiwyg_override' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 1,
+      'weight' => 4,
     ),
   );
 
