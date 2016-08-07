@@ -5,3 +5,17 @@
  */
 
 include_once 'memorial_task_transcribe.features.inc';
+
+/**
+ * Intercept form to default to N/A field.
+ * May be add JS auto-submit?
+ */
+function memorial_task_transcribe_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'editableviews_entity_form_task_transcribe_text':
+      foreach ($form['file'] as $key => $image) {
+        $form['file'][$key]['field_transcription_status'][LANGUAGE_NONE]['#default_value'] = '_none';
+      }
+      break;
+  }
+}
