@@ -39,6 +39,7 @@ function memorial_task_transcribe_views_default_views() {
     'rendered' => 'rendered',
     'field_inscription_editable' => 'field_inscription_editable',
     'field_transcription_complete_editable' => 'field_inscription_editable',
+    'field_transcription_status_editable' => 'field_inscription_editable',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -71,6 +72,13 @@ function memorial_task_transcribe_views_default_views() {
       'empty_column' => 0,
     ),
     'field_transcription_complete_editable' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_transcription_status_editable' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -119,12 +127,12 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['fields']['field_inscription_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_inscription_editable']['suppress_description'] = 0;
   /* Field: File: Transcription complete (editable) */
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['id'] = 'field_transcription_complete_editable';
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['table'] = 'field_data_field_transcription_complete';
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['field'] = 'field_transcription_complete_editable';
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['widget_type'] = '0';
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['suppress_label'] = 0;
-  $handler->display->display_options['fields']['field_transcription_complete_editable']['suppress_description'] = 0;
+  $handler->display->display_options['fields']['field_transcription_status_editable']['id'] = 'field_transcription_status_editable';
+  $handler->display->display_options['fields']['field_transcription_status_editable']['table'] = 'field_data_field_transcription_status';
+  $handler->display->display_options['fields']['field_transcription_status_editable']['field'] = 'field_transcription_status_editable';
+  $handler->display->display_options['fields']['field_transcription_status_editable']['widget_type'] = '0';
+  $handler->display->display_options['fields']['field_transcription_status_editable']['suppress_label'] = 0;
+  $handler->display->display_options['fields']['field_transcription_status_editable']['suppress_description'] = 0;
   /* Filter criterion: File: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'file_managed';
