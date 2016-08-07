@@ -147,13 +147,14 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['filters']['field_readable_text_value']['value'] = array(
     'yes' => 'yes',
   );
-  /* Filter criterion: File: Transcription complete (field_transcription_complete) */
-  $handler->display->display_options['filters']['field_transcription_complete_value']['id'] = 'field_transcription_complete_value';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['table'] = 'field_data_field_transcription_complete';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['field'] = 'field_transcription_complete_value';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['operator'] = 'not';
-  $handler->display->display_options['filters']['field_transcription_complete_value']['value'] = array(
-    1 => '1',
+  /* Filter criterion: File: Transcription complete (field_transcription_status) */
+  $handler->display->display_options['filters']['field_transcription_status_value']['id'] = 'field_transcription_status_value';
+  $handler->display->display_options['filters']['field_transcription_status_value']['table'] = 'field_data_field_transcription_status';
+  $handler->display->display_options['filters']['field_transcription_status_value']['field'] = 'field_transcription_status_value';
+  $handler->display->display_options['filters']['field_transcription_status_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_transcription_status_value']['value'] = array(
+    'transcribe_names_yes' => 'transcribe_names_yes',
+    'transcribe_names_no' => 'transcribe_names_no',
   );
 
   /* Display: Page */

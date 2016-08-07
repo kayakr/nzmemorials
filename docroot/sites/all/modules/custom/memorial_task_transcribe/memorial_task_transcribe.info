@@ -1,7 +1,7 @@
 name = Memorial Task Transcribe
 core = 7.x
 package = Memorials
-version = 7.x-1.0-alpha4
+version = 7.x-1.0-alpha5
 dependencies[] = editableviews
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
