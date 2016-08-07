@@ -98,21 +98,40 @@ function memorial_task_transcribe_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['content'] = '@total images to transcribe.';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<em>[filename]</em> from [title].';
+  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   /* Relationship: File: Content using Image */
   $handler->display->display_options['relationships']['reverse_field_images_node']['id'] = 'reverse_field_images_node';
   $handler->display->display_options['relationships']['reverse_field_images_node']['table'] = 'file_managed';
   $handler->display->display_options['relationships']['reverse_field_images_node']['field'] = 'reverse_field_images_node';
+  /* Field: Content: URL */
+  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
+  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['relationship'] = 'reverse_field_images_node';
+  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
   /* Field: File: Name */
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
   $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['filename']['link_to_file'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_images_node';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: File: Rendered */
   $handler->display->display_options['fields']['rendered']['id'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['table'] = 'file_managed';
