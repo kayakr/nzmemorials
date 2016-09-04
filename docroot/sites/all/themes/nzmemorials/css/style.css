@@ -13,7 +13,7 @@
 }
 
 .view-images-have-text .pager {
-  display: none;
+  /* display: none; */
 }
 
 .view-task-transcribe-text .views-field-field-inscription-editable .views-row-edit-static {
