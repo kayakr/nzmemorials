@@ -5,3 +5,11 @@
  */
 
 include_once 'memorial_image.features.inc';
+
+/**
+ * Return nid of related Memorial node, based on file_usage table.
+ */
+function memorial_image_memorial_nid($fid) {
+  $nid = db_query("SELECT id from file_usage WHERE fid=:fid AND type='node'", array(':fid' => $fid))->fetchField();
+  return $nid;
+}
