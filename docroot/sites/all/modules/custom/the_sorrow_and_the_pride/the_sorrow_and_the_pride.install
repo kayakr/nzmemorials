@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Install hooks to enable modules.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function the_sorrow_and_the_pride_install() {
+
+  $modules = array(
+    'admin_menu',
+    'admin_menu_toolbar',
+    'admin_views',
+    'ctools',
+    'contextual',
+    'environment',
+    'environment_indicator',
+    'strongarm',
+    'features',
+    'libraries',
+    'pathauto',
+    'redirect',
+    'entity',
+    'file_entity',
+    'media',
+    'diff',
+    'field_group',
+    'geofield',
+    'jquery_update',
+    'memorial',
+    'memorial_audit',
+    'memorial_image',
+    'memorial_person',
+    'globalredirect',
+  );
+  foreach ($modules as $module) {
+    echo "Enabling $module\n";
+    _the_sorrow_and_the_pride_enable_module($module);
+  }
+
+  _the_sorrow_and_the_pride_disable_module('overlay');
+  _the_sorrow_and_the_pride_disable_module('toolbar');
+
+  // Enable the theme.
+  watchdog('the_sorrow_and_the_pride', 'Enabling nzmemorials theme.');
+  theme_enable(array('nzmemorials'));
+  variable_set('theme_default', 'nzmemorials');
+}
+
+/**
+ * Enable jQuery Update.
+ */
+function the_sorrow_and_the_pride_update_7001() {
+  _the_sorrow_and_the_pride_enable_module(array(
+    'jquery_update',
+  ));
+}
+
+
+/**
+ * Helper function for enabling modules.
+ *
+ * @param string|array $modulenames
+ *   The name of the module, either an array of text or just text.
+ * @throws DrupalUpdateException
+ */
+function _the_sorrow_and_the_pride_enable_module($modulenames) {
+  $modules = is_array($modulenames) ? $modulenames : array($modulenames);
+  $success = module_enable($modules);
+  if ($success == FALSE) {
+    throw new DrupalUpdateException(implode(',', $modules) . ' module could not be enabled.');
+  }
+}
+
+/**
+ * Helper function for disabling modules.
+ *
+ * @param text $modulename
+ *   The name of the module. Either an array of text or just text
+ */
+function _the_sorrow_and_the_pride_disable_module($module) {
+  $modules = is_array($module) ? $module : array($module);
+  if (module_exists($module)) {
+    module_disable(array($module));
+    if (module_exists($module)) {
+      throw new DrupalUpdateException("{$module} module could not be disabled.");
+    }
+    if (!drupal_uninstall_modules(array($module))) {
+      throw new DrupalUpdateException("{$module} module could not be uninstalled.");
+    }
+  }
+}
