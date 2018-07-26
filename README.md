@@ -8,7 +8,7 @@ See [ABOUT.md](ABOUT.md) for the rationale driving the project.
 Initial work on this project was completed as part of [GovHack NZ 2016](http://govhack.org.nz/).
 
 ## Technical Details
-Based on a Drupal 7.50 framework, with custom code to parse KML geographic data from the Memorials Register and fetch linked entry data from that site. On the Online Cenotaph database, queries are made through an ElasticSearch-based API, pulling in fields that are likely to help site users to identify specific people with a name query.
+Based on a Drupal 7 framework, with custom code to parse KML geographic data from the Memorials Register and fetch linked entry data from that site. On the Online Cenotaph database, queries are made through an ElasticSearch-based API, pulling in fields that are likely to help site users to identify specific people with a name query.
 
 ## Design Considerations
 
