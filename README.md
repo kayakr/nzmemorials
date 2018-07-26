@@ -1,7 +1,7 @@
 NZ Memorials
 ============
 
-Data derived from Ministry for Culture and Heritage as CC BY-NC http://www.nzhistory.net.nz/culture/the-memorials-register (specifically http://www.nzhistory.net.nz/locations.kml).
+Data derived from Ministry for Culture and Heritage as CC BY-NC https://nzhistory.govt.nz/culture/the-memorials-register (specifically https://nzhistory.govt.nz/locations.kml).
 
 See [ABOUT.md](ABOUT.md) for the rationale driving the project.
 
