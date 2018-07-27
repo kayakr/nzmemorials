@@ -80,11 +80,19 @@ function image_audit_views_default_views() {
   $handler->display->display_options['fields']['field_names_individual']['table'] = 'field_data_field_names_individual';
   $handler->display->display_options['fields']['field_names_individual']['field'] = 'field_names_individual';
   $handler->display->display_options['fields']['field_names_individual']['label'] = 'Names';
+  $handler->display->display_options['fields']['field_names_individual']['element_class'] = 'col-md-3';
   $handler->display->display_options['fields']['field_names_individual']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_names_individual']['multi_type'] = 'ol';
   /* Field: File: Transcription complete */
   $handler->display->display_options['fields']['field_transcription_status']['id'] = 'field_transcription_status';
   $handler->display->display_options['fields']['field_transcription_status']['table'] = 'field_data_field_transcription_status';
   $handler->display->display_options['fields']['field_transcription_status']['field'] = 'field_transcription_status';
+  /* Field: File: Edit link */
+  $handler->display->display_options['fields']['edit']['id'] = 'edit';
+  $handler->display->display_options['fields']['edit']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['edit']['field'] = 'edit';
+  $handler->display->display_options['fields']['edit']['label'] = 'Operations';
+  $handler->display->display_options['fields']['edit']['text'] = 'Edit file';
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -135,6 +143,20 @@ function image_audit_views_default_views() {
   $handler->display->display_options['filters']['field_transcription_status_value']['expose']['operator'] = 'field_transcription_status_value_op';
   $handler->display->display_options['filters']['field_transcription_status_value']['expose']['identifier'] = 'field_transcription_status_value';
   $handler->display->display_options['filters']['field_transcription_status_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: File: Extract names complete (field_extract_names_complete) */
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['id'] = 'field_extract_names_complete_value';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['table'] = 'field_data_field_extract_names_complete';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['field'] = 'field_extract_names_complete_value';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['expose']['operator_id'] = 'field_extract_names_complete_value_op';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['expose']['label'] = 'Extract names complete';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['expose']['operator'] = 'field_extract_names_complete_value_op';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['expose']['identifier'] = 'field_extract_names_complete_value';
+  $handler->display->display_options['filters']['field_extract_names_complete_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
