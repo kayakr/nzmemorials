@@ -189,12 +189,11 @@ class MemorialMultiXMLMigration extends XMLMigration {
           foreach ($images as $key => $href) {
             $href_parts = parse_url($href);
             if (empty($href_parts['host'])) {
-              $images[$key] = 'http://www.nzhistory.net.nz' . $href;
+              $images[$key] = 'https://nzhistory.govt.nz' . $href;
             }
           }
         }
         $row->images = $images;
-        //xdebug_break();
       }
 
     }

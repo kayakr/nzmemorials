@@ -56,7 +56,7 @@ function memorial_field_default_field_instances() {
     'bundle' => 'memorial',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Remote node id from http://www.nzhistory.net.nz/',
+    'description' => 'Remote node id from https://nzhistory.govt.nz/',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -262,7 +262,7 @@ function memorial_field_default_field_instances() {
   t('Id');
   t('Image');
   t('Image Refs');
-  t('Remote node id from http://www.nzhistory.net.nz/');
+  t('Remote node id from https://nzhistory.govt.nz/');
   t('URL');
 
   return $field_instances;
