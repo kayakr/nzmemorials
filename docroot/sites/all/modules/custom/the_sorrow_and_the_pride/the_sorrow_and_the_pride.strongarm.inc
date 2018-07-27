@@ -28,7 +28,7 @@ function the_sorrow_and_the_pride_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'The Sorrow And The Pride';
+  $strongarm->value = 'The Sorrow and the Pride';
   $export['site_name'] = $strongarm;
 
   return $export;
