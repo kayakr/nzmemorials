@@ -20,16 +20,17 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 if (!isset($conf['environment']) || !is_array($conf['environment'])) {
   switch ($_SERVER['HTTP_HOST']) {
     // New Catalyst Small Clients cluster https://wiki.wgtn.cat-it.co.nz/wiki/ChcSmallClients
-    case 'thesorrowandthepride.nz':
-      $conf['environment']['default'] = 'production';
-      break;
-
     case 'thesorrowandthepride.catalystdemo.net.nz':
       $conf['environment']['default'] = 'staging';
       break;
 
     case 'thesorrowandthepride.local':
       $conf['environment']['default'] = 'development';
+      break;
+
+    default:
+    //case 'thesorrowandthepride.nz':
+      $conf['environment']['default'] = 'production';
       break;
   }
 }
