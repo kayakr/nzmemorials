@@ -153,8 +153,11 @@ class MemorialMultiXMLMigration extends XMLMigration {
     $a = $row->xml->xpath('kml:description/kml:p/kml:a');
     $a = current($a);
     $href = (string)$a['href'];
+    watchdog('memorial', t('Detected @href.', array('@href' => $href)));
     if (!empty($href)) {
+
       $response = drupal_http_request($href, array('method' => 'HEAD'));
+      watchdog('memorial', t('HEAD @href = @code', array('@href' => $href, '@code' => $response->code)));
       if ($response->code == 200) {
         // </node/399>; rel="shortlink",</media/photo/dargaville-war-memorial-band-rotunda>; rel="canonical"
         $link = $response->headers['link'];
@@ -170,6 +173,7 @@ class MemorialMultiXMLMigration extends XMLMigration {
       // Fetch entire page so we can parse for image URLs.
       $page = drupal_http_request($href);
       if ($page->code == 200) {
+        watchdog('memorial', t('Fetch @href <pre>!page</pre>', array('@href' => $href, '!page' => $response->data)));
 
         $credit = htmlqp($page->data, '#region-credit')->text();
 
@@ -177,6 +181,9 @@ class MemorialMultiXMLMigration extends XMLMigration {
         $primary_image = htmlqp($page->data, '.field-name-field-primary-image img')->attr('src');
         if (!empty($primary_image)) {
           $images[] = $primary_image;
+        }
+        else {
+          watchdog('memorial', t('No primary image detected for @href.', array('@href' => $href)), WATCHDOG_ERROR);
         }
 
         $qp_additional_images = htmlqp($page->data, '.field-name-body a.colorbox-load');
@@ -194,6 +201,9 @@ class MemorialMultiXMLMigration extends XMLMigration {
           }
         }
         $row->images = $images;
+      }
+      else {
+        watchdog('memorial', t('Fetch @href = @code', array('@href' => $href, '@code' => $response->code)), WATCHDOG_ERROR);
       }
 
     }
