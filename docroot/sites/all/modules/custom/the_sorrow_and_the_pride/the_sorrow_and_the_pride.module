@@ -186,8 +186,8 @@ function the_sorrow_and_the_pride_block_view($delta = '') {
 <p>\'Memorials register\', URL: <a href="https://nzhistory.govt.nz/culture/the-memorials-register">https://nzhistory.govt.nz/culture/the-memorials-register</a>, (Ministry for Culture and Heritage), updated 30-Jun-2016.<br/>
 Memorial photos are generally extracted from <a href="https://nzhistory.govt.nz/">https://nzhistory.govt.nz/</a> and attribution should be checked there.<br/>
 <span xmlns:dct="http://purl.org/dc/terms/">Transcription content entered on this site is Public Domain
-<a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
-  <img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" style="border-style: none;" alt="Public Domain Mark" />
+<a rel="license" href="https://creativecommons.org/publicdomain/mark/1.0/">
+  <img src="https://licensebuttons.net/p/mark/1.0/88x31.png" style="border-style: none;" alt="Public Domain Mark" />
 </a></span></p>';
       return $block;
 
