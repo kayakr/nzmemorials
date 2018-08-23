@@ -86,7 +86,8 @@ switch ($conf['environment']['default']) {
     // Connection details for Catalyst Squid proxies.
     $conf['proxy_server'] = 'ext-proxy-prod.catalyst.net.nz';
     $conf['proxy_port'] = '3128';
-    $conf['proxy_exceptions'] = array('cat-chcsc-prod-solr1.servers.catalyst.net.nz');
+    $conf['proxy_exceptions'] = array('cat-chcsc-staging-solr.servers.catalyst.net.nz', 'nzhistory.govt.nz');
+    //$conf['proxy_exceptions'] = array('cat-chcsc-prod-solr1.servers.catalyst.net.nz');
 
     /**
      * Page caching:
@@ -147,7 +148,8 @@ switch ($conf['environment']['default']) {
     // Connection details for Catalyst Squid proxies.
     $conf['proxy_server'] = 'ext-proxy-staging.catalyst.net.nz';
     $conf['proxy_port'] = '3128';
-    $conf['proxy_exceptions'] = array('cat-chcsc-staging-solr.servers.catalyst.net.nz');
+    $conf['proxy_exceptions'] = array('cat-chcsc-staging-solr.servers.catalyst.net.nz', 'nzhistory.govt.nz');
+    //$conf['proxy_exceptions'] = array('cat-chcsc-staging-solr.servers.catalyst.net.nz');
 
     $conf['omit_vary_cookie'] = true;
     break;
