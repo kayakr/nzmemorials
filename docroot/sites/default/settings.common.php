@@ -21,16 +21,16 @@ if (!isset($conf['environment']) || !is_array($conf['environment'])) {
   switch ($_SERVER['HTTP_HOST']) {
     // New Catalyst Small Clients cluster https://wiki.wgtn.cat-it.co.nz/wiki/ChcSmallClients
     case 'thesorrowandthepride.catalystdemo.net.nz':
-      $conf['environment']['default'] = 'staging';
+      $conf['environment'] = array('default' => 'staging');
       break;
 
     case 'thesorrowandthepride.local':
-      $conf['environment']['default'] = 'development';
+      $conf['environment'] = array('default' => 'development');
       break;
 
     default:
     //case 'thesorrowandthepride.nz':
-      $conf['environment']['default'] = 'production';
+      $conf['environment'] = array('default' => 'production');
       break;
   }
 }
