@@ -54,8 +54,7 @@ abstract class MediaWYSIWYGTestHelper extends DrupalWebTestCase {
       'type' => 'media',
       'view_mode' => 'preview',
       'attributes' => $attributes,
-      'fields' => $fields,
-    );
+    ) + $fields;
 
     // Create the file usage markup.
     $markup .= '<p>Intro paragraph</p>';
@@ -144,7 +143,7 @@ class FormatFormViewModesTest extends MediaWYSIWYGViewModeTestHelper {
     // Teaser view mode should be selectable.
     $this->drupalGet('media/' . $fid . '/format-form');
     $this->assertResponse(200);
-    $this->assertOption('edit-format', 'teaser');
+    $this->assertOption('edit-view-mode', 'teaser');
 
     // Restrict the use of the default view mode.
     $this->drupalGet('admin/structure/file-types/manage/image/file-display/teaser');
