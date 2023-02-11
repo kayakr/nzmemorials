@@ -1,0 +1,13 @@
+name: thesorrowandthepride-d7
+recipe: drupal7
+config:
+  webroot: .
+  php: 7.4
+  xdebug: false
+services:
+  database:
+    type: mysql:5.7
+tooling:
+  drush:
+    service: appserver
+    cmd: drush --root=/app
