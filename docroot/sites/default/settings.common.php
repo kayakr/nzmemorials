@@ -34,7 +34,7 @@ if (!isset($conf['environment']) || !is_array($conf['environment'])) {
 
     default:
     //case 'thesorrowandthepride.nz':
-      $conf['environment'] = array('default' => 'production');
+      $conf['environment'] = array('default' => 'production-sitehost');
       break;
   }
 }
@@ -114,6 +114,7 @@ switch ($conf['environment']['default']) {
 
     break;
 
+  case 'production-sitehost':
   case 'staging-sitehost':
     $conf['environment_indicator_text'] = 'STAGING';
 
