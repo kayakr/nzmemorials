@@ -19,6 +19,10 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 // if we don't have environment from settings.php, determine from host.
 if (!isset($conf['environment']) || !is_array($conf['environment'])) {
   switch ($_SERVER['HTTP_HOST']) {
+    case 'beta.thesorrowandthepride.nz':
+      $conf['environment'] = array('default' => 'staging-sitehost');
+      break;
+
     // New Catalyst Small Clients cluster https://wiki.wgtn.cat-it.co.nz/wiki/ChcSmallClients
     case 'thesorrowandthepride.catalystdemo.net.nz':
       $conf['environment'] = array('default' => 'staging');
@@ -108,6 +112,36 @@ switch ($conf['environment']['default']) {
      */
     $conf['omit_vary_cookie'] = true;
 
+    break;
+
+  case 'staging-sitehost':
+    $conf['environment_indicator_text'] = 'STAGING';
+
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', TRUE);
+
+    // c/- PreviousNext
+    // Memory allocation to be 256MB. This is to cover cron etc.
+    if (isset($_GET['q']) && (strpos($_GET['q'], 'admin') === 0 || strpos($_GET['q'], 'en/admin') === 0)) {
+      ini_set('memory_limit', '196M');
+    }
+    // Node edit pages are memory heavy too.
+    if (isset($_GET['q']) && preg_match('@^node\/([0-9]+)\/edit$@', $_GET['q'])) {
+      ini_set('memory_limit', '196M');
+    }
+
+    // Memory allocation to be 256MB. This is to cover cron etc.
+    if (isset($_GET['q']) && (strpos($_GET['q'], 'batch') === 0)) {
+      ini_set('memory_limit', '196M');
+    }
+
+    // File system
+    $conf['file_directory_path'] = 'sites/default/files';
+    $conf['file_public_path'] = $conf['file_directory_path'];
+    //$conf['file_private_path'] = '/var/lib/sitedata/drupal/steelandtube/files_private';
+    $conf['file_downloads'] = 1; // Public.
+
+    $conf['reverse_proxy'] = false;
     break;
 
   case 'staging':
