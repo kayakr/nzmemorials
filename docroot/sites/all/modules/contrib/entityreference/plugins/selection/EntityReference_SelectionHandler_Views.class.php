@@ -140,8 +140,14 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
     $return = array();
     if ($result) {
       $target_type = $this->field['settings']['target_type'];
-      $entities = entity_load($target_type, array_keys($result));
-      foreach($entities as $entity) {
+
+      // Do not load the entire entity for performance reasons.
+      $entity_info = entity_get_info($target_type);
+      $query = db_select($entity_info['base table'], 'e');
+      $query->fields('e');
+      $query->condition('e.' . $entity_info['entity keys']['id'], array_keys($result), 'IN');
+
+      foreach($query->execute() as $entity) {
         list($id,, $bundle) = entity_extract_ids($target_type, $entity);
         $return[$bundle][$id] = $result[$id];
       }
